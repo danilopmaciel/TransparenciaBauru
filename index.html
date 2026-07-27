@@ -3,107 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TransparenciaBauru - Envio de Mensagens</title>
-    <meta name="description" content="Envie mensagens em massa no WhatsApp de forma manual e individual usando o WhatsApp local ou web, sem necessidade de API paga ou WhatsApp Business.">
+    <title>TransparenciaBauru - Fiscalização Cidadã de Gastos Públicos</title>
+    <meta name="description" content="Portal independente de transparência pública em Bauru/SP. Análise dos gastos do Pregão 160/2026 sobre infláveis contraposto com o abandono do playground definitivo do Vitória Régia.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="app-container">
         <header>
             <div class="logo-area">
-                <div class="icon-whatsapp">💬</div>
-                <h1>TransparenciaBauru</h1>
+                <span class="logo-icon">🔍</span>
+                <h1>Transparencia<span>Bauru</span></h1>
             </div>
-            <p class="subtitle">Disparador manual de mensagens para WhatsApp (Sem Business/API)</p>
+            <p class="subtitle">Fiscalização Cidadã e Controle Social dos Recursos Municipais</p>
+            
+            <nav class="main-nav">
+                <button id="nav-dashboard" class="nav-btn active">📊 Dashboard & Contrato</button>
+                <button id="nav-calc" class="nav-btn">🧮 Calculadora</button>
+                <button id="nav-vereadores" class="nav-btn">👥 Vereadores</button>
+            </nav>
         </header>
 
         <main>
-            <section class="card settings-section">
-                <h2>1. Mensagem Padrão</h2>
-                <p class="instruction-text">
-                    Use <strong>%nome</strong> para o nome do contato. Para evitar bloqueios, use <strong>Spintax</strong> para variar as palavras aleatoriamente. Exemplo: <code>[Olá|Oi|Bom dia] %nome, [tudo bem?|como vai?]</code>
-                </p>
-                <div class="form-group">
-                    <label for="messageTemplate">Mensagem:</label>
-                    <textarea id="messageTemplate" placeholder="[Olá|Oi] %nome, [tudo bem?|como vai?] Gostaríamos de falar sobre o evento."></textarea>
-                    <div class="textarea-footer">
-                        <span id="charCount">0 caracteres</span>
-                        <span class="tip-tag">Dica: Use colchetes [A|B]</span>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Seção de Adicionar Contatos -->
-            <section class="card input-section">
-                <div class="tabs-container">
-                    <button id="btnTabIndividual" class="tab-btn active">Adicionar Individual</button>
-                    <button id="btnTabBulk" class="tab-btn">Importar em Massa</button>
-                </div>
-
-                <div id="tab-individual" class="tab-content active">
-                    <form id="contactForm" class="contact-form">
-                        <div class="input-row">
-                            <div class="form-group flex-2">
-                                <label for="contactPhone">Número (com DDD e DDI):</label>
-                                <input type="tel" id="contactPhone" placeholder="Ex: 5511999999999" autocomplete="tel">
-                            </div>
-                            <div class="form-group flex-2">
-                                <label for="contactName">Nome (Opcional):</label>
-                                <input type="text" id="contactName" placeholder="Ex: João Silva" autocomplete="name">
-                            </div>
-                            <div class="form-group flex-2">
-                                <label for="contactInstagram">Instagram (Opcional):</label>
-                                <input type="text" id="contactInstagram" placeholder="Ex: joao.silva">
-                            </div>
-                            <button type="submit" class="btn-add" id="btnAddContact" aria-label="Adicionar contato">
-                                <span class="icon-plus">+</span>
-                            </button>
+            <!-- ABA 1: DASHBOARD & CONTRATO -->
+            <div id="tab-dashboard" class="tab-pane active">
+                <!-- Seção de Alertas e Destaques Rápidos -->
+                <section class="alert-banner">
+                    <div class="alert-badge">ALERTA DE DESPESA</div>
+                    <h2>R$ 656.296,00</h2>
+                    <p>Teto máximo registrado para locação de brinquedos infláveis e pipoca em Bauru (SRP).</p>
+                    
+                    <div class="quick-stats">
+                        <div class="stat-card">
+                            <span class="stat-label">Pregão Eletrônico</span>
+                            <span class="stat-value">160/2026</span>
                         </div>
-                        <small class="helper-text">Insira o código do país (ex: 55 para o Brasil) + DDD + Número.</small>
-                    </form>
-                </div>
-
-                <div id="tab-bulk" class="tab-content">
-                    <form id="bulkForm" class="contact-form">
-                        <div class="form-group">
-                            <label for="bulkInput">Cole a lista de contatos (Um por linha):</label>
-                            <textarea id="bulkInput" placeholder="André Maldonado   PP      (14) 99632-0111&#10;Arnaldo Ribeiro   Avante  (14) 99785-0265" style="min-height: 150px;"></textarea>
+                        <div class="stat-card">
+                            <span class="stat-label">Órgão</span>
+                            <span class="stat-value">SEMEL</span>
                         </div>
-                        <button type="submit" class="btn-primary-action">Importar Todos</button>
-                        <small class="helper-text">Formatos aceitos: "Nome Número", "Nome Partido Número" ou apenas os números.</small>
-                    </form>
-                </div>
-            </section>
-
-            <!-- Seção da Lista de Envios -->
-            <section class="card list-section">
-                <div class="list-header">
-                    <h2>3. Lista de Envios</h2>
-                    <div class="actions-header">
-                        <button id="btnClearList" class="btn-secondary btn-danger">Limpar Lista</button>
+                        <div class="stat-card">
+                            <span class="stat-label">Vencedor CNPJ</span>
+                            <span class="stat-value">61.355.490/0001-38</span>
+                        </div>
                     </div>
-                </div>
+                </section>
 
-                <div class="contacts-wrapper">
-                    <div class="empty-state" id="emptyState">
-                        <div class="empty-icon">👥</div>
-                        <p>Nenhum contato adicionado ainda.</p>
-                        <p class="sub-empty">Adicione números acima para começar o disparo manual.</p>
+                <!-- Comparação O Apagão vs O Brilho -->
+                <section class="card comparison-section">
+                    <h2>O Lazer Temporário vs. O Abandono Fixo</h2>
+                    <p class="instruction-text">Uma comparação entre despesa efêmera de curtíssimo prazo e a infraestrutura permanente da nossa cidade.</p>
+                    
+                    <div class="comparison-grid">
+                        <div class="comparison-card side-temporary">
+                            <h3>Lazer Temporário 🎉</h3>
+                            <div class="price-highlight">R$ 81.177,72</div>
+                            <p class="desc">Custo estimado para manter brinquedos infláveis e pipoca por apenas <strong>13 dias</strong> (6 horas diárias) no evento "Férias no Vitória".</p>
+                        </div>
+                        <div class="comparison-card side-abandoned">
+                            <h3>Patrimônio Abandonado 🏚️</h3>
+                            <div class="price-highlight">Risco Infantil</div>
+                            <p class="desc">O parquinho definitivo do Parque Vitória Régia está quebrado, com madeiras lascadas, ferros expostas e brinquedos inutilizados.</p>
+                        </div>
                     </div>
 
-                    <ul class="contact-list" id="contactList" style="display: none;">
-                        <!-- Inserido dinamicamente via JS -->
-                    </ul>
-                </div>
-            </section>
+                    <div class="comparison-impact">
+                        💡 <strong>Impacto Real:</strong> O valor gasto em apenas <strong>13 dias</strong> do evento temporário pagaria mais de <strong>60% da compra definitiva</strong> de um playground totalmente novo, moderno e de alta resistência para o parque.
+                    </div>
+                </section>
+
+                <!-- Tabela de Preços por Hora -->
+                <section class="card list-section">
+                    <div class="list-header">
+                        <h2>Tabela Homologada de Preços (Pregão 160/2026)</h2>
+                        <input type="text" id="searchItems" placeholder="🔎 Filtrar brinquedo ou item...">
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Item / Descrição</th>
+                                    <th>Valor Homologado / Hora</th>
+                                </tr>
+                            </thead>
+                            <tbody id="itemsTableBody">
+                                <!-- Preenchido dinamicamente via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Fontes Oficiais -->
+                <section class="card sources-section">
+                    <h2>Fontes e Documentos Oficiais</h2>
+                    <p class="instruction-text">Consulte as fontes diretamente no portal oficial do município para auditar as informações apresentadas:</p>
+                    <div class="sources-links">
+                        <a href="https://teste.bauru.sp.gov.br/gustavobento3/administracao/licitacoes/licitacoes_detalhes.aspx?l=10559" target="_blank" class="source-btn">📄 Detalhes da Licitação (Homologação)</a>
+                        <a href="https://www.bauru.sp.gov.br/transparencia/" target="_blank" class="source-btn">🏛️ Portal da Transparência de Bauru</a>
+                        <a href="https://www.gov.br/pncp/pt-br" target="_blank" class="source-btn">🌐 Consulta PNCP (UASG 986219)</a>
+                    </div>
+                </section>
+            </div>
+
+            <!-- ABA 2: CALCULADORA -->
+            <div id="tab-calc" class="tab-pane">
+                <section class="card calc-section">
+                    <h2>Simulador de Custos em Tempo Real</h2>
+                    <p class="instruction-text">
+                        A prefeitura paga a locação dos brinquedos por <strong>hora de uso</strong>. Selecione a quantidade de cada item instalado e defina o tempo de evento para ver o custo total cobrado aos cofres públicos.
+                    </p>
+
+                    <div class="calc-layout">
+                        <!-- Itens do simulador -->
+                        <div class="calc-items" id="calcItemsList">
+                            <!-- Preenchido via JS -->
+                        </div>
+
+                        <!-- Painel de Resultados Fixo/Sticky -->
+                        <div class="calc-sidebar">
+                            <div class="calc-results-card">
+                                <h3>Total da Simulação</h3>
+                                <div class="total-price" id="calcTotalDisplay">R$ 0,00</div>
+                                
+                                <div class="form-group">
+                                    <label for="calcHours">Tempo do Evento (Horas):</label>
+                                    <div class="hours-control">
+                                        <button type="button" class="btn-hour-step" onclick="adjustHours(-1)">-</button>
+                                        <input type="number" id="calcHours" value="6" min="1" max="24">
+                                        <button type="button" class="btn-hour-step" onclick="adjustHours(1)">+</button>
+                                    </div>
+                                </div>
+
+                                <div class="simulation-text" id="calcSummaryText">
+                                    Nenhum item selecionado.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- ABA 3: VEREADORES -->
+            <div id="tab-vereadores" class="tab-pane">
+                <!-- Seção de Ação do Cidadão -->
+                <section class="card template-section">
+                    <h2>Cobrança Direta aos Vereadores</h2>
+                    <p class="instruction-text">
+                        Os vereadores têm a obrigação constitucional de fiscalizar a prefeitura. Abaixo está o modelo de mensagem cobrando a fiscalização do Pregão 160/2026 e a reforma definitiva do parquinho do Vitória Régia (mencionando o <strong>Ofício/Gab nº 281/2026</strong> protocolado na SEMEL).
+                    </p>
+                    
+                    <div class="form-group">
+                        <label for="actionTemplate">Modelo de Mensagem:</label>
+                        <textarea id="actionTemplate">Olá, vereador(a) %nome. Como cidadão de Bauru, gostaria de solicitar seu apoio na fiscalização do Pregão Eletrônico 160/2026 (locação de infláveis/pipoca pela SEMEL) de até R$ 656 mil. Peço também atenção especial ao Ofício/Gab nº 281/2026 cobrando a urgente reforma estrutural do playground fixo do Parque Vitória Régia, que hoje se encontra abandonado e perigoso para as nossas crianças. Contamos com sua atuação fiscalizadora!</textarea>
+                        <div class="textarea-footer">
+                            <button id="btnCopyTemplate" class="btn-secondary">📋 Copiar Mensagem de Cobrança</button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="card vereadores-list-card">
+                    <h2>Lista de Vereadores em Exercício</h2>
+                    <p class="instruction-text">
+                        Clique em <strong>Enviar WhatsApp</strong> para abrir o aplicativo com a mensagem já escrita, ou acesse o perfil de <strong>Instagram</strong> do parlamentar para enviar sua mensagem por Direct.
+                    </p>
+                    
+                    <div class="contacts-wrapper">
+                        <ul class="contact-list" id="vereadoresList">
+                            <!-- Preenchido dinamicamente via JS -->
+                        </ul>
+                    </div>
+                </section>
+            </div>
         </main>
 
         <footer>
-            <p>Os dados deste site são salvos apenas no seu navegador (localStorage).</p>
-            <p>TransparenciaBauru &copy; 2026 - Código aberto para uso pessoal.</p>
+            <p>Este é um site de controle social e utilidade pública sem vínculos partidários.</p>
+            <p>TransparenciaBauru &copy; 2026. Todos os dados são públicos e auditáveis.</p>
         </footer>
     </div>
 
