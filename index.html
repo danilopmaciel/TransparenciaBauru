@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TransparenciaBauru - Envio de Mensagens</title>
+    <meta name="description" content="Envie mensagens em massa no WhatsApp de forma manual e individual usando o WhatsApp local ou web, sem necessidade de API paga ou WhatsApp Business.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo-area">
+                <div class="icon-whatsapp">💬</div>
+                <h1>TransparenciaBauru</h1>
+            </div>
+            <p class="subtitle">Disparador manual de mensagens para WhatsApp (Sem Business/API)</p>
+        </header>
+
+        <main>
+            <section class="card settings-section">
+                <h2>1. Mensagem Padrão</h2>
+                <p class="instruction-text">
+                    Use <strong>%nome</strong> para o nome do contato. Para evitar bloqueios, use <strong>Spintax</strong> para variar as palavras aleatoriamente. Exemplo: <code>[Olá|Oi|Bom dia] %nome, [tudo bem?|como vai?]</code>
+                </p>
+                <div class="form-group">
+                    <label for="messageTemplate">Mensagem:</label>
+                    <textarea id="messageTemplate" placeholder="[Olá|Oi] %nome, [tudo bem?|como vai?] Gostaríamos de falar sobre o evento."></textarea>
+                    <div class="textarea-footer">
+                        <span id="charCount">0 caracteres</span>
+                        <span class="tip-tag">Dica: Use colchetes [A|B]</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção de Adicionar Contatos -->
+            <section class="card input-section">
+                <div class="tabs-container">
+                    <button id="btnTabIndividual" class="tab-btn active">Adicionar Individual</button>
+                    <button id="btnTabBulk" class="tab-btn">Importar em Massa</button>
+                </div>
+
+                <div id="tab-individual" class="tab-content active">
+                    <form id="contactForm" class="contact-form">
+                        <div class="input-row">
+                            <div class="form-group flex-2">
+                                <label for="contactPhone">Número (com DDD e DDI):</label>
+                                <input type="tel" id="contactPhone" placeholder="Ex: 5511999999999" autocomplete="tel">
+                            </div>
+                            <div class="form-group flex-2">
+                                <label for="contactName">Nome (Opcional):</label>
+                                <input type="text" id="contactName" placeholder="Ex: João Silva" autocomplete="name">
+                            </div>
+                            <div class="form-group flex-2">
+                                <label for="contactInstagram">Instagram (Opcional):</label>
+                                <input type="text" id="contactInstagram" placeholder="Ex: joao.silva">
+                            </div>
+                            <button type="submit" class="btn-add" id="btnAddContact" aria-label="Adicionar contato">
+                                <span class="icon-plus">+</span>
+                            </button>
+                        </div>
+                        <small class="helper-text">Insira o código do país (ex: 55 para o Brasil) + DDD + Número.</small>
+                    </form>
+                </div>
+
+                <div id="tab-bulk" class="tab-content">
+                    <form id="bulkForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="bulkInput">Cole a lista de contatos (Um por linha):</label>
+                            <textarea id="bulkInput" placeholder="André Maldonado   PP      (14) 99632-0111&#10;Arnaldo Ribeiro   Avante  (14) 99785-0265" style="min-height: 150px;"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary-action">Importar Todos</button>
+                        <small class="helper-text">Formatos aceitos: "Nome Número", "Nome Partido Número" ou apenas os números.</small>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Seção da Lista de Envios -->
+            <section class="card list-section">
+                <div class="list-header">
+                    <h2>3. Lista de Envios</h2>
+                    <div class="actions-header">
+                        <button id="btnClearList" class="btn-secondary btn-danger">Limpar Lista</button>
+                    </div>
+                </div>
+
+                <div class="contacts-wrapper">
+                    <div class="empty-state" id="emptyState">
+                        <div class="empty-icon">👥</div>
+                        <p>Nenhum contato adicionado ainda.</p>
+                        <p class="sub-empty">Adicione números acima para começar o disparo manual.</p>
+                    </div>
+
+                    <ul class="contact-list" id="contactList" style="display: none;">
+                        <!-- Inserido dinamicamente via JS -->
+                    </ul>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Os dados deste site são salvos apenas no seu navegador (localStorage).</p>
+            <p>TransparenciaBauru &copy; 2026 - Código aberto para uso pessoal.</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
