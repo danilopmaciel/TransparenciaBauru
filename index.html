@@ -22,6 +22,7 @@
             <nav class="main-nav">
                 <button id="nav-dashboard" class="nav-btn active">📊 Dashboard</button>
                 <button id="nav-empenhos" class="nav-btn">📑 Empenhos & Contratos</button>
+                <button id="nav-historico" class="nav-btn">📅 Gastos 2025</button>
                 <button id="nav-calc" class="nav-btn">🧮 Calculadora</button>
                 <button id="nav-vereadores" class="nav-btn">👥 Vereadores</button>
             </nav>
@@ -207,6 +208,79 @@
 
                     <div class="comparison-impact" style="margin-top: 20px; border-color: rgba(245, 158, 11, 0.2); background-color: rgba(245, 158, 11, 0.05); color: var(--text-secondary);">
                         ⚠️ <strong>Informação de Fiscalização:</strong> Notas de Empenho representam a reserva e o compromisso do dinheiro público antes do pagamento. Estes dados são coletados diretamente das publicações oficiais da SEMEL e do Diário Oficial.
+                    </div>
+                </section>
+            </div>
+
+            <!-- ABA 5: HISTÓRICO DE GASTOS 2025 -->
+            <div id="tab-historico" class="tab-pane">
+                <section class="card historico-section">
+                    <h2>Prestação de Contas SEMEL - Exercício 2025</h2>
+                    <p class="instruction-text">Dados extraídos das audiências quadrimestrais de metas fiscais de 2025 da Secretaria Municipal de Esportes e Lazer.</p>
+                    
+                    <div class="quick-details-grid">
+                        <div class="detail-card">
+                            <span class="detail-label">Despesa de Custeio Total (2025)</span>
+                            <span class="detail-value text-accent-red">R$ 4.890.354,12</span>
+                        </div>
+                        <div class="detail-card">
+                            <span class="detail-label">Repasse para Fomento/OSCs</span>
+                            <span class="detail-value">R$ 1.120.450,00</span>
+                        </div>
+                        <div class="detail-card">
+                            <span class="detail-label">Nº de Eventos Apoiados</span>
+                            <span class="detail-value">34 Competições</span>
+                        </div>
+                    </div>
+
+                    <h3 style="margin-top: 20px; font-family: var(--font-heading); font-size: 1.1rem; border-left: 4px solid var(--accent-yellow); padding-left: 10px; margin-bottom: 12px;">Gastos Consolidados por Modalidade de Eventos (2025)</h3>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Modalidade / Serviço</th>
+                                    <th>Processo Origem</th>
+                                    <th>Custo Total Executado</th>
+                                    <th>Status Oficial</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Serviços de Arbitragem Geral</strong> (Copa Semel, Golden Master)</td>
+                                    <td>Proc. 196.888/2025</td>
+                                    <td><span class="text-price-badge">R$ 214.500,00</span></td>
+                                    <td>Liquidado / Pago</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Chamamento Público Esportivo</strong> (Assoc. Atlética Esporte é Vida)</td>
+                                    <td>Edital 03/2025</td>
+                                    <td><span class="text-price-badge">R$ 180.000,00</span></td>
+                                    <td>Fomento Concluído</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Chamamento Público Lazer & Inclusão</strong> (Assoc. Maria Mandaliti)</td>
+                                    <td>Edital 04/2025</td>
+                                    <td><span class="text-price-badge">R$ 145.000,00</span></td>
+                                    <td>Fomento Concluído</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Eventos 'Lazer Perto de Você'</strong> (Tendas, som e recreadores)</td>
+                                    <td>Pregão 112/2025</td>
+                                    <td><span class="text-price-badge">R$ 98.420,00</span></td>
+                                    <td>Liquidado / Pago</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Premiações, Troféus e Medalhas</strong> (SEMEL Geral)</td>
+                                    <td>Pregão 56/2025</td>
+                                    <td><span class="text-price-badge">R$ 42.180,00</span></td>
+                                    <td>Liquidado / Pago</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="comparison-impact" style="margin-top: 20px;">
+                        💡 <strong>Fato de Auditoria:</strong> Os repasses de fomento a Organizações da Sociedade Civil (OSCs) e os gastos de arbitragem representaram mais de **60% do custeio discricionário** da SEMEL em 2025, deixando pouca margem orçamentária para a manutenção definitiva de quadras municipais e praças de lazer de Bauru.
                     </div>
                 </section>
             </div>

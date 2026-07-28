@@ -53,11 +53,13 @@ let state = {
 // 3. SELETORES DOM
 const navDashboardBtn = document.getElementById('nav-dashboard');
 const navEmpenhosBtn = document.getElementById('nav-empenhos');
+const navHistoricoBtn = document.getElementById('nav-historico');
 const navCalcBtn = document.getElementById('nav-calc');
 const navVereadoresBtn = document.getElementById('nav-vereadores');
 
 const tabDashboard = document.getElementById('tab-dashboard');
 const tabEmpenhos = document.getElementById('tab-empenhos');
+const tabHistorico = document.getElementById('tab-historico');
 const tabCalc = document.getElementById('tab-calc');
 const tabVereadores = document.getElementById('tab-vereadores');
 
@@ -76,11 +78,13 @@ function switchTab(activeTab) {
     // Esconde todas
     tabDashboard.classList.remove('active');
     tabEmpenhos.classList.remove('active');
+    tabHistorico.classList.remove('active');
     tabCalc.classList.remove('active');
     tabVereadores.classList.remove('active');
     
     navDashboardBtn.classList.remove('active');
     navEmpenhosBtn.classList.remove('active');
+    navHistoricoBtn.classList.remove('active');
     navCalcBtn.classList.remove('active');
     navVereadoresBtn.classList.remove('active');
 
@@ -91,6 +95,9 @@ function switchTab(activeTab) {
     } else if (activeTab === 'empenhos') {
         tabEmpenhos.classList.add('active');
         navEmpenhosBtn.classList.add('active');
+    } else if (activeTab === 'historico') {
+        tabHistorico.classList.add('active');
+        navHistoricoBtn.classList.add('active');
     } else if (activeTab === 'calc') {
         tabCalc.classList.add('active');
         navCalcBtn.classList.add('active');
@@ -102,6 +109,7 @@ function switchTab(activeTab) {
 
 navDashboardBtn.addEventListener('click', () => switchTab('dashboard'));
 navEmpenhosBtn.addEventListener('click', () => switchTab('empenhos'));
+navHistoricoBtn.addEventListener('click', () => switchTab('historico'));
 navCalcBtn.addEventListener('click', () => switchTab('calc'));
 navVereadoresBtn.addEventListener('click', () => switchTab('vereadores'));
 
