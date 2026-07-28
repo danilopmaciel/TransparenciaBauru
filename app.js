@@ -69,8 +69,6 @@ const calcTotalDisplay = document.getElementById('calcTotalDisplay');
 const calcHoursInput = document.getElementById('calcHours');
 const calcSummaryText = document.getElementById('calcSummaryText');
 
-const actionTemplateTextarea = document.getElementById('actionTemplate');
-const btnCopyTemplate = document.getElementById('btnCopyTemplate');
 const vereadoresListUl = document.getElementById('vereadoresList');
 
 // 4. SISTEMA DE ABAS (NAVEGAÇÃO)
@@ -309,13 +307,7 @@ function toggleVereadorStatus(phone, newStatus) {
 }
 
 function sendWhatsAppToVereador(ver) {
-    const rawTemplate = actionTemplateTextarea.value;
-    // Substitui %nome pelo nome do vereador
-    const finalMsg = rawTemplate.replace(/%nome/gi, ver.name);
-    
-    const encodedText = encodeURIComponent(finalMsg);
-    const waUrl = `https://wa.me/${ver.phone}?text=${encodedText}`;
-    
+    const waUrl = `https://wa.me/${ver.phone}`;
     window.open(waUrl, '_blank');
     toggleVereadorStatus(ver.phone, 'sent');
 }
@@ -324,12 +316,7 @@ function sendWhatsAppToVereador(ver) {
 function loadState() {
     try {
         const savedStatus = localStorage.getItem(STORAGE_KEYS.VEREADORES_STATUS);
-        const savedTemplate = localStorage.getItem(STORAGE_KEYS.ACTION_TEMPLATE);
-
         state.vereadoresStatus = savedStatus ? JSON.parse(savedStatus) : {};
-        if (savedTemplate) {
-            actionTemplateTextarea.value = savedTemplate;
-        }
         
         renderItemsTable();
         initCalculator();
@@ -342,22 +329,10 @@ function loadState() {
 function saveState() {
     try {
         localStorage.setItem(STORAGE_KEYS.VEREADORES_STATUS, JSON.stringify(state.vereadoresStatus));
-        localStorage.setItem(STORAGE_KEYS.ACTION_TEMPLATE, actionTemplateTextarea.value);
     } catch (e) {
         console.error("Erro ao salvar no localStorage", e);
     }
 }
-
-// Copiar modelo de mensagem
-btnCopyTemplate.addEventListener('click', () => {
-    actionTemplateTextarea.select();
-    document.execCommand('copy');
-    alert('Modelo de mensagem copiado para a área de transferência!');
-});
-
-actionTemplateTextarea.addEventListener('input', () => {
-    saveState();
-});
 
 // Inicialização
 document.addEventListener('DOMContentLoaded', loadState);
