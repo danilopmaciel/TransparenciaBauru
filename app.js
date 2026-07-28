@@ -52,10 +52,12 @@ let state = {
 
 // 3. SELETORES DOM
 const navDashboardBtn = document.getElementById('nav-dashboard');
+const navEmpenhosBtn = document.getElementById('nav-empenhos');
 const navCalcBtn = document.getElementById('nav-calc');
 const navVereadoresBtn = document.getElementById('nav-vereadores');
 
 const tabDashboard = document.getElementById('tab-dashboard');
+const tabEmpenhos = document.getElementById('tab-empenhos');
 const tabCalc = document.getElementById('tab-calc');
 const tabVereadores = document.getElementById('tab-vereadores');
 
@@ -75,10 +77,12 @@ const vereadoresListUl = document.getElementById('vereadoresList');
 function switchTab(activeTab) {
     // Esconde todas
     tabDashboard.classList.remove('active');
+    tabEmpenhos.classList.remove('active');
     tabCalc.classList.remove('active');
     tabVereadores.classList.remove('active');
     
     navDashboardBtn.classList.remove('active');
+    navEmpenhosBtn.classList.remove('active');
     navCalcBtn.classList.remove('active');
     navVereadoresBtn.classList.remove('active');
 
@@ -86,6 +90,9 @@ function switchTab(activeTab) {
     if (activeTab === 'dashboard') {
         tabDashboard.classList.add('active');
         navDashboardBtn.classList.add('active');
+    } else if (activeTab === 'empenhos') {
+        tabEmpenhos.classList.add('active');
+        navEmpenhosBtn.classList.add('active');
     } else if (activeTab === 'calc') {
         tabCalc.classList.add('active');
         navCalcBtn.classList.add('active');
@@ -96,6 +103,7 @@ function switchTab(activeTab) {
 }
 
 navDashboardBtn.addEventListener('click', () => switchTab('dashboard'));
+navEmpenhosBtn.addEventListener('click', () => switchTab('empenhos'));
 navCalcBtn.addEventListener('click', () => switchTab('calc'));
 navVereadoresBtn.addEventListener('click', () => switchTab('vereadores'));
 

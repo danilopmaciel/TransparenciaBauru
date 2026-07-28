@@ -199,6 +199,40 @@ header h1 span {
     color: var(--text-primary);
 }
 
+/* Ficha de Empenhos - Grid */
+.quick-details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.detail-card {
+    background-color: rgba(15, 23, 42, 0.4);
+    border: 1px solid var(--card-border);
+    padding: 12px;
+    border-radius: var(--border-radius-md);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.detail-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.detail-value {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.text-accent-red {
+    color: var(--accent-red) !important;
+}
+
 /* Cards Genericos */
 .card {
     background: var(--card-bg);
